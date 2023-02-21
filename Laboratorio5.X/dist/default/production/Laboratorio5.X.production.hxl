@@ -10,12 +10,12 @@
  Intel Hex-file ranges:
   0h - 5h		(dist/default/production\Laboratorio5.X.production.hex)
   8h - 3Bh		(dist/default/production\Laboratorio5.X.production.hex)
-  200h - 2C5h		(dist/default/production\Laboratorio5.X.production.hex)
+  200h - 2C1h		(dist/default/production\Laboratorio5.X.production.hex)
   400Eh - 4011h		(dist/default/production\Laboratorio5.X.production.hex)
  Unused ranges:
   6h - 7h
   3Ch - 1FFh
-  2C6h - 400Dh
+  2C2h - 400Dh
 
 ### Hex Memory Map ###
  Legend:
@@ -41,7 +41,7 @@
 00000290 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 000002A0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 000002B0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
-000002C0 | H1 H1 H1 H1 H1 H1 -- -- -- -- -- -- -- -- -- --
+000002C0 | H1 H1 -- -- -- -- -- -- -- -- -- -- -- -- -- --
 ----------------------------------------------------------
 00004000 | -- -- -- -- -- -- -- -- -- -- -- -- -- -- H1 H1
 00004010 | H1 H1 -- -- -- -- -- -- -- -- -- -- -- -- -- --

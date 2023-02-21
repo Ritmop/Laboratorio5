@@ -2489,7 +2489,7 @@ btnDWN EQU 7 ;Button Down count RB
 disp0en EQU 1 ;Display 0 enable RE pin
 disp1en EQU 0 ;Display 1 enable RE pin
 ;disp2en EQU 2 ;Display 2 enable RE pin
-TMR0_n EQU 100 ;TMR0 N value 100*
+TMR0_n EQU 61 ;TMR0 N value 100*
 
 PSECT udata_bank0 ;common memory
     nibbles: DS 2 ;Counter high(+1) & low(0) nibble
@@ -2591,8 +2591,6 @@ display7_table:
  call catch_nibbles ;Capture counter's high and low nibbles
  call fetch_disp_out ;Prepare displays outputs
  call show_display ;Show display output
- movf disp_sel, W
- movwf PORTD
  goto loop ;loop forever
 
 ;--------------------------------- Sub Rutinas ---------------------------------
@@ -2626,7 +2624,7 @@ display7_table:
  bcf OPTION_REG, 4 ;Low-to-High transition
  bcf OPTION_REG, 3 ;Prescaler assigned to TMR0 module
 
- bcf OPTION_REG, 2 ;TMR0 prescaler 1:16
+ bsf OPTION_REG, 2 ;TMR0 prescaler 1:256
  bsf OPTION_REG, 1
  bsf OPTION_REG, 0
     return
