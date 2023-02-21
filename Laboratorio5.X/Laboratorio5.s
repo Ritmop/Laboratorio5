@@ -38,12 +38,13 @@
 btnUP	EQU	4	;Button Up count RB
 btnDWN  EQU	7	;Button Down count RB
 TMR0_n	EQU	100	;TMR0 N value	100*
-T0IF_n	EQU	50	;TMR0 flag repetitions	50*
+;T0IF_n	EQU	50	;TMR0 flag repetitions	50*
   
 PSECT udata_bank0 ;common memory
-    T0IF_count:	    DS  1	;TMR0 Overflow counter
-    disp_sec_unit:  DS  1	;Seconds display counter
-    disp_sec_dec:   DS  1	;Decades display counter
+    ;T0IF_count:	    DS  1	;TMR0 Overflow counter
+    disp_sec_unit:  DS  1	;Ones display counter
+    disp_sec_dec:   DS  1	;Tens display counter
+    disp_sec_dec:   DS  1	;Hundreds display counter
     
 PSECT udata_shr	;common memory
     W_temp:	    DS  1	;Temporay W
@@ -158,8 +159,8 @@ display7_table:
     
     config_TMR0:
 	;TMR0 period set to 20ms (altogether with TMR0_n)
-	bsf	OSCCON,	6   ;Internal clock 8 MHz
-	bsf	OSCCON,	5   
+	bsf	OSCCON,	6   ;Internal clock 2 MHz
+	bcf	OSCCON,	5   
 	bsf	OSCCON,	4   
 	bsf	OSCCON,	0	
 	
@@ -167,7 +168,7 @@ display7_table:
 	bcf	OPTION_REG, 4	;Low-to-High transition
 	bcf	OPTION_REG, 3	;Prescaler assigned to TMR0 module
 	
-	bsf	OPTION_REG, 2	;TMR0 Rate 1:256
+	bcf	OPTION_REG, 2	;TMR0 Rate 1:16
 	bsf	OPTION_REG, 1	
 	bsf	OPTION_REG, 0
     return
