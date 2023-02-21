@@ -37,14 +37,17 @@
 ;---------------------------------- Variables ----------------------------------
 btnUP	EQU	4	;Button Up count RB
 btnDWN  EQU	7	;Button Down count RB
+disp0en	EQU	1	;Display 0 enable RE pin
+disp1en	EQU	0	;Display 1 enable RE pin
+;disp2en	EQU	2	;Display 2 enable RE pin
 TMR0_n	EQU	100	;TMR0 N value	100*
-;T0IF_n	EQU	50	;TMR0 flag repetitions	50*
   
 PSECT udata_bank0 ;common memory
-    ;T0IF_count:	    DS  1	;TMR0 Overflow counter
-    disp_sec_unit:  DS  1	;Ones display counter
-    disp_sec_dec:   DS  1	;Tens display counter
-    disp_sec_dec:   DS  1	;Hundreds display counter
+    nibbles:	DS  2	;Counter high(+1) & low(0) nibble 
+    disp_out0:  DS  1	;Ones display output
+    disp_out1:  DS  1	;Tens display output
+    disp_out2:  DS  1	;Hundreds display output
+    disp_sel:	DS  1	;Display selector (LSB only)
     
 PSECT udata_shr	;common memory
     W_temp:	    DS  1	;Temporay W
@@ -68,8 +71,8 @@ ORG 04h    ;posición para las interrupciones
     isr:	;Interrupt Instructions (Interrupt Service Routine)
 	btfsc	RBIF
 	call	ioc_PortB
-	;btfsc	T0IF
-	;call	T0IF_inter
+	btfsc	T0IF
+	call	T0IF_inter
     pop:	;Restore State before interrupt
 	swapf	STATUS_temp,W	;Reverse Swap for status and save into W
 	movwf	STATUS		;Move W into STATUS register (Restore State)
@@ -88,12 +91,15 @@ ORG 04h    ;posición para las interrupciones
 	bcf	RBIF	;Reset OIC flag
     return
     
-;    T0IF_inter:
-;	movlw	TMR0_n	    ;reset TRM0 count
-;	movwf	TMR0
-;	decf	T0IF_count  ;Decrement flags repetition counter
-;	bcf	T0IF	    ;Reset TMR0 overflow flag
-;    return
+    T0IF_inter:
+	;Reset TMR0
+	movlw	TMR0_n	    ;reset TRM0 count
+	movwf	TMR0
+	bcf	T0IF	    ;Reset TMR0 overflow flag
+	;Togle selected display
+	movlw	0x01
+	xorwf	disp_sel,   F
+    return
 	
 ;------------------------------------ Tablas -----------------------------------
 PSECT code, delta=2, abs
@@ -119,7 +125,7 @@ display7_table:
     retlw   01011110B   ;D
     retlw   01111001B   ;E
     retlw   01110001B   ;F
-    ;retlw   01110110B   ;X "Offset > 15"
+    retlw   01110110B   ;X "Offset > 15"
 	   ;_gfedcba segments
 	   
 ;------------------------------- Configuración uC ------------------------------
@@ -132,9 +138,12 @@ display7_table:
 
 ;-------------------------------- Loop Principal -------------------------------
     loop:
-	;call	check_T0IF_count
-	;call	restrict_counters   ;Restrict counters before tables offset	
-	;call	update_displays
+	;call	restrict_counters   ;Restrict counters before tables offset
+	call	catch_nibbles	;Capture counter's high and low nibbles
+	call	fetch_disp_out	;Prepare displays outputs
+	call	show_display	;Show display output
+	movf	disp_sel, W
+	movwf	PORTD
 	goto	loop	    ;loop forever
 	
 ;--------------------------------- Sub Rutinas ---------------------------------
@@ -168,7 +177,7 @@ display7_table:
 	bcf	OPTION_REG, 4	;Low-to-High transition
 	bcf	OPTION_REG, 3	;Prescaler assigned to TMR0 module
 	
-	bcf	OPTION_REG, 2	;TMR0 Rate 1:16
+	bcf	OPTION_REG, 2	;TMR0 prescaler 1:16
 	bsf	OPTION_REG, 1	
 	bsf	OPTION_REG, 0
     return
@@ -182,18 +191,6 @@ display7_table:
 	bsf	IOCB,	btnUP	;Enable Interrupt-on-Change
 	bsf	IOCB,	btnDWN	;Enable Interrupt-on-Change
     return
-;   	
-;    check_T0IF_count:
-;	movf	T0IF_count, f	;Check if counter is zero
-;	btfsc	STATUS, 2
-;	call	reset_T0IF_count
-;    return
-;    
-;    reset_T0IF_count:
-;	incf	disp_sec_unit	;Increment seconds
-;	movlw	T0IF_n		;Reset flag repetitions
-;	movwf	T0IF_count
-;    return
 ;    
 ;    restrict_counters:
 ;	;disp_sec_unit, upwards seconds counter
@@ -210,36 +207,58 @@ display7_table:
 ;	btfsc	STATUS,	0	;Check ~borrow flag
 ;	clrf	disp_sec_dec
 ;	
-;	;PORTA, two way counter, 4 bit
-;	btfss	PORTA,	7
-;	goto	$+3	;Skip PORTA == 0x0F
-;	movlw	00001111B
-;	movwf	PORTA
-;	btfsc	PORTA,	4
-;	clrf	PORTA
-;    return
-;    
-;    init_portNvars:
-;	banksel PORTA	    ;Clear Output Ports
-;	call	reset_T0IF_count    ;Initialize T0IF flag repetitions
-;	clrf	disp_sec_unit
-;	clrf	PORTA
-;	clrf	PORTC
-;	clrf	PORTD
-;	clrf	PORTE
-;	clrw
-;    return
-;    
-;    update_displays:
-;	;Seconds display
-;	movf	disp_sec_unit, W
-;	call	display7_table	;Returns binary code for 7 segment display
-;	movwf	PORTD
-;	;Decades display
-;	movf	disp_sec_dec, W
-;	call	display7_table	;Returns binary code for 7 segment display
-;	movwf	PORTC
-;    return
+;   return
+    
+    init_portNvars:
+	banksel PORTA	    ;Clear Output Ports
+	clrf	PORTA
+	clrf	PORTC
+	clrf	PORTD
+	clrf	PORTE
+	movlw	0x01	    ;Start with low nibble display enabled
+	movwf	disp_sel
+	clrw
+    return
+    
+    catch_nibbles:
+	;Get PORTA's counter low nibble
+	movf	PORTA,	W
+	andlw	0x0F
+	movwf	nibbles
+	;Get PORTA's counter high nibble
+	swapf	PORTA,	W
+	andlw	0x0F
+	movwf	nibbles+1
+    return
+    
+    fetch_disp_out:
+	;Low nibble display
+	movf	nibbles, W
+	call	display7_table	;Returns binary code for 7 segment display
+	movwf	disp_out0
+	
+	;High nibble display
+	movf	nibbles+1, W
+	call	display7_table	;Returns binary code for 7 segment display
+	movwf	disp_out1
+    return
+    
+    show_display:
+	btfss	disp_sel,   0
+	goto	$+6 ;Jump to display 1
+	;Display 0 - low nibble
+	bcf	PORTE,	disp1en	;Disable display 1
+	movf	disp_out0, W	;Load display 0 value
+	movwf	PORTC		;to PortC
+	bsf	PORTE,	disp0en	;Enable display 0
+    return
+	;Display 1 - High nibble
+	bcf	PORTE,	disp0en	;Disable display 0
+	movf	disp_out1   , W	;Load display 1 value
+	movwf	PORTC		;to PortC
+	bsf	PORTE,	disp1en	;Enable display 1
+    return
+    
     END
 
 
