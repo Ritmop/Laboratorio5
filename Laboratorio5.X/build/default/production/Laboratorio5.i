@@ -7,11 +7,12 @@
 ;Autor: Judah Pérez 21536
 ;Compilador: pic-as (v2.40), MPLAB X IDE v6.05
 ;
-;Programa:
-;Hardware:
-;
-;
-;
+;Programa: Contador 8 bits / Hexadecimal con displays Multiplexación
+;Hardware: 8 leds PORTA<7:0>
+; 2 displays 7 segmentos PORTC<6:0>
+; 2 botones PORTB<4> y PORTB<4>
+; 2 transitores NPN PORTE<1:0>
+; Los transistores conectan el ánodo común de los displays a tierra.
 ;
 ;Creado: 20/02/23
 ;Última modificación: 20/02/23
@@ -2463,7 +2464,7 @@ stk_offset SET 0
 auto_size SET 0
 ENDM
 # 8 "C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\\pic\\include\\xc.inc" 2 3
-# 18 "Laboratorio5.s" 2
+# 19 "Laboratorio5.s" 2
 
 
 ;configuration word 1
@@ -2486,16 +2487,14 @@ ENDM
 ;---------------------------------- Variables ----------------------------------
 btnUP EQU 4 ;Button Up count RB
 btnDWN EQU 7 ;Button Down count RB
-disp0en EQU 1 ;Display 0 enable RE pin
-disp1en EQU 0 ;Display 1 enable RE pin
-;disp2en EQU 2 ;Display 2 enable RE pin
-TMR0_n EQU 61 ;TMR0 N value 100*
+disp0en EQU 2 ;Display 0 enable RE pin
+disp1en EQU 1 ;Display 1 enable RE pin
+disp2en EQU 0 ;Display 2 enable RE pin
+TMR0_n EQU 61 ;TMR0 N value
 
 PSECT udata_bank0 ;common memory
-    nibbles: DS 2 ;Counter high(+1) & low(0) nibble
-    disp_out0: DS 1 ;Ones display output
-    disp_out1: DS 1 ;Tens display output
-    disp_out2: DS 1 ;Hundreds display output
+    decimal: DS 3 ;Hundreads(+2), Tens(+1) & Ones(0) digits in binary
+    disp_out: DS 3 ;Hundreads(+2), Tens(+1) & Ones(0) display output
     disp_sel: DS 1 ;Display selector (LSB only)
 
 PSECT udata_shr ;common memory
@@ -2545,9 +2544,8 @@ ORG 04h ;posición para las interrupciones
  movlw TMR0_n ;reset TRM0 count
  movwf TMR0
  bcf ((INTCON) and 07Fh), 2 ;Reset TMR0 overflow flag
- ;Togle selected display
- movlw 0x01
- xorwf disp_sel, F
+ ;Change selected display
+ incf disp_sel
     return
 
 ;------------------------------------ Tablas -----------------------------------
@@ -2671,39 +2669,55 @@ display7_table:
  ;Get PORTA's counter low nibble
  movf PORTA, W
  andlw 0x0F
- movwf nibbles
+ movwf decimal
  ;Get PORTA's counter high nibble
  swapf PORTA, W
  andlw 0x0F
- movwf nibbles+1
+ movwf decimal+1
     return
 
     fetch_disp_out:
- ;Low nibble display
- movf nibbles, W
+ ;Ones display
+ movf decimal, W
  call display7_table ;Returns binary code for 7 segment display
- movwf disp_out0
+ movwf disp_out
 
- ;High nibble display
- movf nibbles+1, W
+ ;Tens display
+ movf decimal+1, W
  call display7_table ;Returns binary code for 7 segment display
- movwf disp_out1
+ movwf disp_out+1
+
+ ;Hundreds display
+ movf decimal+2, W
+ call display7_table ;Returns binary code for 7 segment display
+ movwf disp_out+2
     return
 
     show_display:
- btfss disp_sel, 0
- goto $+6 ;Jump to display 1
- ;Display 0 - low nibble
- bcf PORTE, disp1en ;Disable display 1
- movf disp_out0, W ;Load display 0 value
+ btfsc disp_sel, 1
+ goto Display_2 ;Jump to display 2
+ btfsc disp_sel, 0
+ goto Display_1 ;Jump to display 1
+
+ Display_0: ;Ones
+ bcf PORTE, disp2en ;Disable display 2
+ movf disp_out, W ;Load display 0 value
  movwf PORTC ;to PortC
  bsf PORTE, disp0en ;Enable display 0
     return
- ;Display 1 - High nibble
+
+ Display_1: ;Tens
  bcf PORTE, disp0en ;Disable display 0
- movf disp_out1 , W ;Load display 1 value
+ movf disp_out+1, W ;Load display 1 value
  movwf PORTC ;to PortC
  bsf PORTE, disp1en ;Enable display 1
+    return
+
+ Display_2: ;Hundreds
+ bcf PORTE, disp1en ;Disable display 1
+ movf disp_out+2, W ;Load display 1 value
+ movwf PORTC ;to PortC
+ bsf PORTE, disp2en ;Enable display 2
     return
 
     END
