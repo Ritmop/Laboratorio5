@@ -16,7 +16,8 @@
 ;
 ;-------------------------------------------------------------------------------
     PROCESSOR 16F887
-    #include <xc.inc>
+    #include <xc.inc>    
+    #include "macros.s"
 
 ;configuration word 1
     CONFIG FOSC  = INTRC_NOCLKOUT //OSCILADOR INTERNO SIN SALIDA
@@ -44,24 +45,27 @@ disp2en	EQU	0	;Display 2 enable RE pin
 TMR0_n	EQU	61	;TMR0 N value
   
 PSECT udata_bank0 ;common memory
-    decimal:	DS  3	;Hundreads(+2), Tens(+1) & Ones(0) digits in binary
+    digits:	DS  3	;Hundreads(+2), Tens(+1) & Ones(0) digits in binary
     disp_out:	DS  3	;Hundreads(+2), Tens(+1) & Ones(0) display output
     disp_sel:	DS  1	;Display selector (LSB only)
+    count_val:	DS  1	;Store counters value
+    mod10:	DS  1	;Module 10 for binary to decimal convertion
+    rotations:	DS  1	;Rotations counter for binary to decimal convertion
     
 PSECT udata_shr	;common memory
-    W_temp:	    DS  1	;Temporay W
-    STATUS_temp:    DS	1	;Temporay STATUS
+    W_temp:	    DS  1	;Temporary W
+    STATUS_temp:    DS	1	;Temporary STATUS
     
 ;--------------------------------- Vector Reset --------------------------------
 PSECT resVect, class=CODE, abs, delta=2
-ORG 00h	    ;posicion 0000h para el reset
+ORG 0000h	    ;posicion 0000h para el reset
     resetVec:
 	PAGESEL main
 	goto main
 	
 ;------------------------------- Interrupt Vector ------------------------------
 PSECT intVect, class=CODE, abs, delta=2
-ORG 04h    ;posición para las interrupciones
+ORG 0004h    ;posición para las interrupciones
 	
     push:	;Tamporarily save State before interrupt
 	movwf	W_temp		;Copy W to temp register
@@ -101,10 +105,10 @@ ORG 04h    ;posición para las interrupciones
 	
 ;------------------------------------ Tablas -----------------------------------
 PSECT code, delta=2, abs
-ORG 100h    ;posición para el código
+ORG 0100h    ;posición para el código
 
 display7_table:
-    clrf    PCLATH	;Page 0
+    clrf    PCLATH	
     bsf	    PCLATH, 0	;0100h
     addwf   PCL,    f	;Offset
     retlw   00111111B   ;0
@@ -136,10 +140,11 @@ display7_table:
 
 ;-------------------------------- Loop Principal -------------------------------
     loop:
+	call	get_digits	;Get counter's value in decimal digits
 	;call	restrict_counters   ;Restrict counters before tables offset
-	call	catch_nibbles	;Capture counter's high and low nibbles
 	call	fetch_disp_out	;Prepare displays outputs
 	call	show_display	;Show display output
+	
 	goto	loop	    ;loop forever
 	
 ;--------------------------------- Sub Rutinas ---------------------------------
@@ -187,23 +192,17 @@ display7_table:
 	bsf	IOCB,	btnUP	;Enable Interrupt-on-Change
 	bsf	IOCB,	btnDWN	;Enable Interrupt-on-Change
     return
-;    
-;    restrict_counters:
-;	;disp_sec_unit, upwards seconds counter
-;	movlw	10		
-;	subwf	disp_sec_unit, W;Check 10 seconds
-;	btfss	STATUS,	0	;Check ~borrow flag
-;	goto	$+3 ;Skip reset counter
-;	clrf	disp_sec_unit
-;	incf	disp_sec_dec
-;	
-;	;disp_sec_dec, upwards decades counter
-;	movlw	6
-;	subwf	disp_sec_dec, W	;Check 6 decades
-;	btfsc	STATUS,	0	;Check ~borrow flag
-;	clrf	disp_sec_dec
-;	
-;   return
+    
+    restrict_counters:
+	;Ones digit
+	movlw	10		
+	subwf	digits, W   ;Check 10
+	btfss	STATUS,	2   ;Check zero flag
+	goto	$+3	    ;Skip overflow reset
+	clrf	digits
+	incf	digits+1
+	
+   return
     
     init_portNvars:
 	banksel PORTA	    ;Clear Output Ports
@@ -211,35 +210,28 @@ display7_table:
 	clrf	PORTC
 	clrf	PORTD
 	clrf	PORTE
-	movlw	0x01	    ;Start with low nibble display enabled
-	movwf	disp_sel
 	clrw
     return
     
-    catch_nibbles:
-	;Get PORTA's counter low nibble
-	movf	PORTA,	W
-	andlw	0x0F
-	movwf	decimal
-	;Get PORTA's counter high nibble
-	swapf	PORTA,	W
-	andlw	0x0F
-	movwf	decimal+1
+    get_digits:
+	bin_to_dec  PORTA,digits
+	bin_to_dec  count_val,digits+1
+	bin_to_dec  count_val,digits+2
     return
     
     fetch_disp_out:
 	;Ones display
-	movf	decimal, W
+	movf	digits, W
 	call	display7_table	;Returns binary code for 7 segment display
 	movwf	disp_out
 	
 	;Tens display
-	movf	decimal+1, W
+	movf	digits+1, W
 	call	display7_table	;Returns binary code for 7 segment display
 	movwf	disp_out+1
 	
 	;Hundreds display
-	movf	decimal+2, W
+	movf	digits+2, W
 	call	display7_table	;Returns binary code for 7 segment display
 	movwf	disp_out+2
     return
