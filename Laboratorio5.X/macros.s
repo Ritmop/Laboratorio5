@@ -24,7 +24,9 @@ bin_to_dec macro    binary,decimal_digit
     goto    $-8	        ;If rotations left, goto long div (loop)
     ;Store decimal digit
     movf    mod10, W
-    movwf   decimal_digit   
+    movwf   decimal_digit
+    ;Final rotate to prepare next digit
+    rlf	count_val
 endm
 
 

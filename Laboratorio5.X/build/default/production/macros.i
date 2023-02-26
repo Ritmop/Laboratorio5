@@ -28,4 +28,6 @@ bin_to_dec macro binary,decimal_digit
     ;Store decimal digit
     movf mod10, W
     movwf decimal_digit
+    ;Final rotate to prepare next digit
+    rlf count_val
 endm
