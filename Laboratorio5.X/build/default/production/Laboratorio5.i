@@ -7,15 +7,15 @@
 ;Autor: Judah Pérez 21536
 ;Compilador: pic-as (v2.40), MPLAB X IDE v6.05
 ;
-;Programa: Contador 8 bits / Hexadecimal con displays Multiplexación
+;Programa: Contador 8 bits / Decimal con displays Multiplexación
 ;Hardware: 8 leds PORTA<7:0>
-; 2 displays 7 segmentos PORTC<6:0>
+; 3 displays 7 segmentos PORTC<6:0>
 ; 2 botones PORTB<4> y PORTB<4>
-; 2 transitores NPN PORTE<1:0>
+; 3 transitores NPN PORTE<2:0>
 ; Los transistores conectan el ánodo común de los displays a tierra.
 ;
 ;Creado: 20/02/23
-;Última modificación: 20/02/23
+;Última modificación: 26/02/23
 ;
 ;-------------------------------------------------------------------------------
     PROCESSOR 16F887
@@ -2479,8 +2479,8 @@ bin_to_dec macro binary,decimal_digit
 
     ;long div
     ;rotate count_val into mod10
-    rlf count_val
-    rlf mod10
+    rlf count_val, F
+    rlf mod10, F
     ;mod10 - 10
     movlw 10
     subwf mod10, W
@@ -2495,7 +2495,7 @@ bin_to_dec macro binary,decimal_digit
     movf mod10, W
     movwf decimal_digit
     ;Final rotate to prepare next digit
-    rlf count_val
+    rlf count_val, F
 endm
 # 20 "Laboratorio5.s" 2
 
@@ -2523,7 +2523,7 @@ btnDWN EQU 7 ;Button Down count RB
 disp0en EQU 2 ;Display 0 enable RE pin
 disp1en EQU 1 ;Display 1 enable RE pin
 disp2en EQU 0 ;Display 2 enable RE pin
-TMR0_n EQU 61 ;TMR0 N value
+TMR0_n EQU 217 ;TMR0 N value 217*
 
 PSECT udata_bank0 ;common memory
     digits: DS 3 ;Hundreads(+2), Tens(+1) & Ones(0) digits in binary
@@ -2622,7 +2622,6 @@ display7_table:
 ;-------------------------------- Loop Principal -------------------------------
     loop:
  call get_digits ;Get counter's value in decimal digits
- ;call restrict_counters ;Restrict counters before tables offset
  call fetch_disp_out ;Prepare displays outputs
  call show_display ;Show display output
 
@@ -2673,17 +2672,6 @@ display7_table:
  bsf IOCB, btnUP ;Enable Interrupt-on-Change
  bsf IOCB, btnDWN ;Enable Interrupt-on-Change
     return
-
-    restrict_counters:
- ;Ones digit
- movlw 10
- subwf digits, W ;Check 10
- btfss STATUS, 2 ;Check zero flag
- goto $+3 ;Skip overflow reset
- clrf digits
- incf digits+1
-
-   return
 
     init_portNvars:
  banksel PORTA ;Clear Output Ports

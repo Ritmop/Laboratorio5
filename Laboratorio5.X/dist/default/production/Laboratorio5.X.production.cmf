@@ -13,7 +13,7 @@
 %PSECTS
 $build/default/production/Laboratorio5.o
 resVect CODE 0 0 0 3 2 1
-code CODE 0 0 0 1A0 2 1
+code CODE 0 0 0 199 2 1
 intVect CODE 0 0 0 1D 2 1
 udata_bank0 BANK0 1 20 20 A 1 1
 udata_shr COMMON 1 70 70 2 1 1
@@ -32,14 +32,14 @@ BANK0 2A-6F 1
 BANK1 A0-EF 1
 BANK2 110-16F 1
 BANK3 190-1EF 1
-CONST 1A0-1FFF 2
-ENTRY 1A0-1FFF 2
+CONST 199-1FFF 2
+ENTRY 199-1FFF 2
 IDLOC 2000-2003 2
-CODE 1A0-1FFF 2
+CODE 199-1FFF 2
 COMMON 72-7F 1
 EEDATA 2100-21FF 2
-STRCODE 1A0-1FFF 2
-STRING 1A0-1FFF 2
+STRCODE 199-1FFF 2
+STRING 199-1FFF 2
 # %LINETAB Section
 # This section enumerates the file/line to address mappings.
 # The beginning of the section is indicated by %LINETAB.
@@ -108,138 +108,131 @@ F intVect CODE >84:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\La
 116 code CODE >138:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
 117 code CODE >139:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
 118 code CODE >143:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
-119 code CODE >145:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
-11A code CODE >146:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
-11B code CODE >148:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
-11C code CODE >152:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
-11E code CODE >153:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
-11F code CODE >154:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
-120 code CODE >156:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
-122 code CODE >157:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
-123 code CODE >158:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
-124 code CODE >159:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
-125 code CODE >160:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
-126 code CODE >162:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
-127 code CODE >163:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
-128 code CODE >164:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
-129 code CODE >165:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
-12A code CODE >167:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
-12B code CODE >168:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
-12C code CODE >172:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
-12D code CODE >173:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
-12E code CODE >174:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
-12F code CODE >175:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
-130 code CODE >177:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
-131 code CODE >178:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
-132 code CODE >179:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
-133 code CODE >181:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
-134 code CODE >182:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
-135 code CODE >183:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
-136 code CODE >184:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
-137 code CODE >187:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
-138 code CODE >189:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
-139 code CODE >191:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
-13A code CODE >192:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
-13B code CODE >193:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
-13C code CODE >194:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
-13D code CODE >198:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
-13E code CODE >199:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
-13F code CODE >200:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
-140 code CODE >201:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
-141 code CODE >202:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
-142 code CODE >203:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
-143 code CODE >205:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
-144 code CODE >208:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
-146 code CODE >209:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
-147 code CODE >210:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
-148 code CODE >211:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
-149 code CODE >212:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
-14A code CODE >213:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
-14B code CODE >214:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
-14C code CODE >217:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
-14D code CODE >217:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
-14E code CODE >217:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
-14F code CODE >217:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
-150 code CODE >217:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
-151 code CODE >217:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
-152 code CODE >217:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
-153 code CODE >217:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
-154 code CODE >217:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
-155 code CODE >217:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
-156 code CODE >217:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
-157 code CODE >217:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
-158 code CODE >217:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
-159 code CODE >217:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
-15A code CODE >217:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
-15B code CODE >217:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
-15C code CODE >217:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
-15D code CODE >217:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
-15E code CODE >218:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
-15F code CODE >218:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
-160 code CODE >218:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
-161 code CODE >218:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
-162 code CODE >218:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
-163 code CODE >218:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
-164 code CODE >218:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
-165 code CODE >218:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
-166 code CODE >218:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
-167 code CODE >218:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
-168 code CODE >218:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
-169 code CODE >218:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
-16A code CODE >218:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
-16B code CODE >218:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
-16C code CODE >218:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
-16D code CODE >218:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
-16E code CODE >218:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
-16F code CODE >218:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
-170 code CODE >219:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
-171 code CODE >219:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
-172 code CODE >219:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
-173 code CODE >219:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
-174 code CODE >219:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
-175 code CODE >219:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
-176 code CODE >219:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
-177 code CODE >219:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
-178 code CODE >219:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
-179 code CODE >219:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
-17A code CODE >219:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
-17B code CODE >219:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
-17C code CODE >219:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
-17D code CODE >219:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
-17E code CODE >219:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
-17F code CODE >219:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
-180 code CODE >219:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
+119 code CODE >144:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
+11A code CODE >145:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
+11B code CODE >147:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
+11C code CODE >151:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
+11E code CODE >152:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
+11F code CODE >153:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
+120 code CODE >155:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
+122 code CODE >156:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
+123 code CODE >157:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
+124 code CODE >158:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
+125 code CODE >159:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
+126 code CODE >161:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
+127 code CODE >162:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
+128 code CODE >163:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
+129 code CODE >164:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
+12A code CODE >166:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
+12B code CODE >167:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
+12C code CODE >171:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
+12D code CODE >172:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
+12E code CODE >173:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
+12F code CODE >174:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
+130 code CODE >176:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
+131 code CODE >177:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
+132 code CODE >178:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
+133 code CODE >180:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
+134 code CODE >181:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
+135 code CODE >182:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
+136 code CODE >183:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
+137 code CODE >186:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
+138 code CODE >188:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
+139 code CODE >190:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
+13A code CODE >191:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
+13B code CODE >192:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
+13C code CODE >193:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
+13D code CODE >196:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
+13F code CODE >197:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
+140 code CODE >198:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
+141 code CODE >199:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
+142 code CODE >200:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
+143 code CODE >201:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
+144 code CODE >202:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
+145 code CODE >205:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
+146 code CODE >205:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
+147 code CODE >205:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
+148 code CODE >205:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
+149 code CODE >205:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
+14A code CODE >205:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
+14B code CODE >205:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
+14C code CODE >205:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
+14D code CODE >205:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
+14E code CODE >205:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
+14F code CODE >205:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
+150 code CODE >205:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
+151 code CODE >205:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
+152 code CODE >205:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
+153 code CODE >205:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
+154 code CODE >205:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
+155 code CODE >205:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
+156 code CODE >205:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
+157 code CODE >206:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
+158 code CODE >206:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
+159 code CODE >206:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
+15A code CODE >206:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
+15B code CODE >206:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
+15C code CODE >206:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
+15D code CODE >206:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
+15E code CODE >206:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
+15F code CODE >206:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
+160 code CODE >206:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
+161 code CODE >206:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
+162 code CODE >206:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
+163 code CODE >206:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
+164 code CODE >206:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
+165 code CODE >206:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
+166 code CODE >206:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
+167 code CODE >206:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
+168 code CODE >206:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
+169 code CODE >207:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
+16A code CODE >207:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
+16B code CODE >207:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
+16C code CODE >207:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
+16D code CODE >207:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
+16E code CODE >207:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
+16F code CODE >207:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
+170 code CODE >207:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
+171 code CODE >207:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
+172 code CODE >207:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
+173 code CODE >207:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
+174 code CODE >207:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
+175 code CODE >207:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
+176 code CODE >207:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
+177 code CODE >207:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
+178 code CODE >207:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
+179 code CODE >207:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
+17A code CODE >207:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
+17B code CODE >208:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
+17C code CODE >212:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
+17D code CODE >213:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
+17E code CODE >214:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
+17F code CODE >217:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
+180 code CODE >218:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
 181 code CODE >219:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
-182 code CODE >220:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
-183 code CODE >224:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
-184 code CODE >225:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
-185 code CODE >226:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
-186 code CODE >229:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
-187 code CODE >230:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
-188 code CODE >231:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
-189 code CODE >234:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
-18A code CODE >235:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
-18B code CODE >236:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
-18C code CODE >237:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
-18D code CODE >240:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
-18E code CODE >241:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
-18F code CODE >242:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
-190 code CODE >243:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
-191 code CODE >246:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
-192 code CODE >247:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
-193 code CODE >248:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
-194 code CODE >249:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
-195 code CODE >250:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
-196 code CODE >253:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
-197 code CODE >254:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
-198 code CODE >255:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
-199 code CODE >256:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
-19A code CODE >257:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
-19B code CODE >260:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
-19C code CODE >261:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
-19D code CODE >262:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
-19E code CODE >263:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
-19F code CODE >264:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
+182 code CODE >222:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
+183 code CODE >223:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
+184 code CODE >224:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
+185 code CODE >225:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
+186 code CODE >228:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
+187 code CODE >229:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
+188 code CODE >230:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
+189 code CODE >231:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
+18A code CODE >234:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
+18B code CODE >235:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
+18C code CODE >236:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
+18D code CODE >237:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
+18E code CODE >238:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
+18F code CODE >241:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
+190 code CODE >242:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
+191 code CODE >243:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
+192 code CODE >244:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
+193 code CODE >245:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
+194 code CODE >248:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
+195 code CODE >249:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
+196 code CODE >250:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
+197 code CODE >251:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
+198 code CODE >252:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio5\Laboratorio5.X\Laboratorio5.s
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -252,7 +245,7 @@ F intVect CODE >84:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\La
 # was defined in a psect then <psect> will be "-". File-name
 # is the name of the object file in which the symbol was defined.
 %SYMTAB
-__Hspace_0 1A0 0 ABS 0 - -
+__Hspace_0 199 0 ABS 0 - -
 __Hspace_1 72 0 ABS 0 - -
 __Hspace_3 0 0 ABS 0 - -
 __Hspace_4 4010 0 ABS 0 - -

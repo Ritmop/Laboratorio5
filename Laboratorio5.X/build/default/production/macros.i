@@ -13,8 +13,8 @@ bin_to_dec macro binary,decimal_digit
 
     ;long div
     ;rotate count_val into mod10
-    rlf count_val
-    rlf mod10
+    rlf count_val, F
+    rlf mod10, F
     ;mod10 - 10
     movlw 10
     subwf mod10, W
@@ -29,5 +29,5 @@ bin_to_dec macro binary,decimal_digit
     movf mod10, W
     movwf decimal_digit
     ;Final rotate to prepare next digit
-    rlf count_val
+    rlf count_val, F
 endm
